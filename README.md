@@ -30,6 +30,26 @@ Pekiştirmeli öğrenme prensibini kullanan adaptif bir algoritma. Her sunucu i�
   - `tau` — Keşif sıcaklığı (düşük = açgözlü, yüksek = rastgele)
   - `alpha` — Öğrenme oranı
 
+#### 📐 Softmax Formülü
+
+Softmax yük dengeleme algoritmasında her sunucunun seçilme olasılığı aşağıdaki formül ile hesaplanır:
+
+$$P(i) = \frac{e^{Q_i / \tau}}{\sum_{j=1}^{K} e^{Q_j / \tau}}$$
+
+**📌 Açıklama**
+
+| Sembol | Açıklama |
+|--------|----------|
+| $P(i)$ | i. sunucunun seçilme olasılığı |
+| $Q_i$ | i. sunucunun tahmini performans değeri |
+| $\tau$ | Temperature (sıcaklık) parametresi |
+| $K$ | Toplam sunucu sayısı |
+
+**🔥 Temperature Parametresinin Etkisi**
+
+- **Küçük τ** → Daha greedy davranış (en iyi sunucu daha sık seçilir)
+- **Büyük τ** → Daha fazla exploration (keşif artar)
+
 ### 🔄 Round Robin Yük Dengeleyici
 Sunuculara sırayla istek dağıtır. Herhangi bir öğrenme ya da adaptasyon gerçekleştirmez.
 
